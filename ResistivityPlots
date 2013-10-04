@@ -1,0 +1,32 @@
+%make pretty graphs.
+
+%11.36 --60/40 solder density
+%1 g/cm^2 flux density
+%presentage flux by density
+
+%column 1 of data is the length, column 2 is the resistance.
+
+dia_lead6040sdr=.032; %in
+dia_tinantimsdr=.1135; %in
+
+area6040sdr= (1-.022) *pi*(dia_lead6040sdr/2)^2; %multipled by .022 to account for flux
+areatinantsdr=pi*(dia_tinantimsdr/2)^2;
+
+res6040sdr= area6040sdr.*leaded_60_40(:,2)./leaded_60_40(:,1);
+restinantsdr=areatinantsdr.*tin_antimony(:,2)./tin_antimony(:,1);
+
+A=std(res6040sdr);
+B=std(restinantsdr);
+% tin_antimony((length(leaded_60_40):length(tin_antimony)),1))
+hold on
+
+plot (leaded_60_40(:,1), leaded_60_40(:,2).*area6040sdr, 'o-c')
+plot(tin_antimony(:,1),tin_antimony(:,2).*areatinantsdr, '*-r')
+% plot (leaded_60_40(:,2), res6040sdr,'o-c');
+% plot (tin_antimony(:,2), restinantsdr,'*-r')
+legend('60-40 Leaded Solder','Tin-Antimony Lead Free Solder')
+title ('Resistivity of Selected Solders', 'FontSize',20)
+% xlabel('length, in','FontSize',16)
+% ylabel('resistivity, ohm in','FontSize',16)
+xlabel('Length, m','FontSize',16)
+ylabel('Resistance * Area, ohm m^2','FontSize',16)
