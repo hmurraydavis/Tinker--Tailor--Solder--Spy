@@ -1,12 +1,7 @@
 %make pretty graphs.
-
-%11.36 --60/40 solder density
-%1 g/cm^2 flux density
-%presentage flux by density
-
 %column 1 of data is the length, column 2 is the resistance.
 
-%areas:
+%% areas:
 ATin_Ant=pi*(0.1135/2)^2;
 Alead60_40=pi*(0.032/2)^2;
 ATinCpr=pi*(0.033/2)^2;
@@ -14,7 +9,7 @@ ATinSvrCpr=pi*(0.03/2)^2;
 Alead70_30=pi*(0.125/2)^2;
 Aeutectic=pi*(0.025/2)^2;
 
-
+%% Make pretty pictures:
 hold on
 plot (lead60_40(:,1), lead60_40(:,2)./Alead60_40, '*-c')
 plot(Tin_Ant(:,1),Tin_Ant(:,2)./ATin_Ant, '*-r')
@@ -23,7 +18,15 @@ plot(TinSlvrCpr(:,1),TinSlvrCpr(:,2)./ATinSvrCpr,'*-b')
 plot(eutectic(:,1),eutectic(:,2)./Aeutectic, '*-m')
 plot(lead70_30(:,1), lead70_30(:,2)./Alead70_30, '*-g')
 
+%% calculate slopes:
+Mlead60_40=sum(lead60_40(:,2))/Alead60_40/sum(lead60_40(:,1));
+MTin_Ant=sum(Tin_Ant(:,2))/ATin_Ant/sum(Tin_Ant(:,1));
+MTinCpr=sum(TinCpr(:,2))/ATinCpr/sum(TinCpr(:,1));
+MTinSlvrCpr=sum(TinSlvrCpr(:,2))/ATinSvrCpr/sum(TinSlvrCpr(:,1));
+Meutectic=sum(eutectic(:,2))/Aeutectic/sum(eutectic(:,1));
+Mlead70_30=sum(lead70_30(:,2))/Alead70_30/sum(lead70_30(:,1));
 
+%% Make graphs pretty:
 legend('Sn60','Sb3','Sn99Cu1', 'SAC305', 'Sn63', 'Sn30')
 title ('Resistivity of Selected Solders', 'FontSize',20)
 xlabel('Length, m','FontSize',16)
