@@ -5,14 +5,14 @@
 %presentage flux by density
 
 %column 1 of data is the length, column 2 is the resistance.
+
+%areas:
 ATin_Ant=pi*(0.1135/2)^2;
 Alead60_40=pi*(0.032/2)^2;
 ATinCpr=pi*(0.033/2)^2;
 ATinSvrCpr=pi*(0.03/2)^2;
 Alead70_30=pi*(0.125/2)^2;
 Aeutectic=pi*(0.025/2)^2;
-
-
 
 
 hold on
@@ -22,9 +22,10 @@ plot(Tin_Ant(:,1),Tin_Ant(:,2)./ATin_Ant, '*-r')
 plot(TinCpr(:,1),TinCpr(:,2)./ATinCpr, '*-y')
 plot(TinSlvrCpr(:,1),TinSlvrCpr(:,2)./ATinSvrCpr,'*-b')
 plot(eutectic(:,1),eutectic(:,2)./Aeutectic, '*-m')
+plot(lead70_30(:,1), lead70_30(:,2)./Alead70_30, '*-g')
 
 
-legend('60-40 Leaded Solder','Tin-Antimony Lead Free Solder','99.3% Tin .7% Copper', '96.5% Tin 3% Silver .5% Copper', '63% Lead 37 % Tin Eutectic')
+legend('60-40 Leaded Solder','Tin-Antimony Lead Free Solder','99.3% Tin .7% Copper', '96.5% Tin 3% Silver .5% Copper', '63% Lead 37 % Tin Eutectic', '70 % Lead 30 % Tin')
 title ('Resistivity of Selected Solders', 'FontSize',20)
 xlabel('Length, m','FontSize',16)
 ylabel('Resistance * Area, ohm m^2','FontSize',16)
