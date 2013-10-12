@@ -1,0 +1,11 @@
+% column 2 is temp
+%collumn 1 is time?????
+
+%% Make plots
+hold all
+plot(eutectic0(:,2),eutectic0(:,3));
+plot(eutectic1(:,2),eutectic1(:,3));
+plot(sac305_0(:,2),sac305_0(:,3));
+plot(sn_sb_0(:,2),sn_sb_0(:,3));
+
+%% Beautify plots:
