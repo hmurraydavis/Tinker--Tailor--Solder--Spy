@@ -1,0 +1,48 @@
+%% areas:
+Aant=1;
+Aeut1=1;
+Aeut2=1;
+Asac=1;
+Asn=1;
+AsnB=1;
+
+%% lengths:
+Lant=1;
+Leut1=1;
+Leut2=1;
+Lsac=1;
+Lsn=1;
+LsnB=1;
+
+%% stress: =Fn/A
+STant=antimony1(:,3)./Aant;
+STeut1=eutectic1(:,3)./Aeut1;
+STeut2=eutectic2(:,3)./Aeut2;
+STsac=sac305(:,3)./Asac;
+STsn=sn30(:,3)/Asn;
+STsnB=sn_30_B(:,3)./AsnB;
+
+%% strain: =Fn/l
+SNant=antimony1(:,3)./Lant;
+SNeut1=eutectic1(:,3)./Leut1;
+SNeut2=eutectic2(:,3)./Leut2;
+SNsac=sac305(:,3)./Lsac;
+SNsn=sn30(:,3)/Lsn;
+SNsnB=sn_30_B(:,3)./LsnB;
+
+%% plots:
+hold all
+plot(STant,SNant, 'LineWidth',3);
+plot(STeut1,SNeut1, 'LineWidth',3);
+plot(STeut2,SNeut2,'LineWidth',3);
+plot(STsac,SNsac,'LineWidth',3);
+plot(STsn,SNsn,'LineWidth',3);
+plot(STsnB,SNsnB,'LineWidth',3);
+
+title('Stress - Strain Curve of Selected Solders','FontSize',20)
+xlabel('Stress', 'FontSize',18)
+ylabel('Strain', 'FontSize',18)
+leg=legend('Antimony', '63-37', '63-37 T2', 'SAC 305', 'Sn30','Sn 30 T2', 'FontSize',20);
+% set(h_legend,'FontSize',40);
+set (leg,'fontsize',20);
+
