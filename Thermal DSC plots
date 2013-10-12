@@ -5,17 +5,16 @@
 %% Make plots
 hold all
 plot(eutectic0(:,2),eutectic0(:,3)./0.0073, 'LineWidth',3);set(gca,'FontSize',16);
-%plot(eutectic1(:,2),eutectic1(:,3), 'LineWidth',3);
-plot(sac305_0(:,2),sac305_0(:,3)./0.0076, 'LineWidth',3);
-%plot(sn30_0(:,2),sn30_0(:,3), 'LineWidth',3);
 plot(sn30_1(:,2),sn30_1(:,3)./0.0081, 'LineWidth',3);
 plot(sn99cu1(:,2),sn99cu1(:,3)./0.0076, 'LineWidth',3);
 plot(sn_sb_0(:,2),sn_sb_0(:,3)./0.0109, 'LineWidth',3);
+plot(sac305_0(:,2),sac305_0(:,3)./0.0076, 'LineWidth',3);
+%plot(sn30_0(:,2),sn30_0(:,3), 'LineWidth',3);
 
 %% Beautify plots:
 xlabel('Temperature (\circC)', 'FontSize', 18)
 ylabel('Heat Flow (mW g^{-1})', 'FontSize', 18)
-leg=legend('Sn63', 'SAC 305', 'Sn30', 'Sn99Cu1', 'Sn97Ag3');
+leg=legend('Sn63', 'Sn30', 'Sn99Cu1', 'Sn97Ag3', 'SAC305');
 % set(h_legend,'FontSize',40);
 plot; setgca
 set (leg,'fontsize',18);
