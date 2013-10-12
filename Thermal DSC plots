@@ -1,11 +1,19 @@
+%Takes data from the DSC test and makes it into the most beautiful plots
+%ever.
 % column 2 is temp
 %collumn 1 is time?????
 
 %% Make plots
 hold all
-plot(eutectic0(:,2),eutectic0(:,3));
-plot(eutectic1(:,2),eutectic1(:,3));
-plot(sac305_0(:,2),sac305_0(:,3));
-plot(sn_sb_0(:,2),sn_sb_0(:,3));
+plot(eutectic0(:,2),eutectic0(:,3), 'LineWidth',3);
+plot(eutectic1(:,2),eutectic1(:,3), 'LineWidth',3);
+plot(sac305_0(:,2),sac305_0(:,3), 'LineWidth',3);
+plot(sn_sb_0(:,2),sn_sb_0(:,3), 'LineWidth',3);
 
 %% Beautify plots:
+title('Stress - Strain Curve of Selected Solders','FontSize',20)
+xlabel('Time (m)', 'FontSize',18)
+ylabel('Temperature (C \circ)', 'FontSize',18)
+leg=legend('63-37--T1', '63-37--T2', 'SAC 305', 'Sn30');
+% set(h_legend,'FontSize',40);
+set (leg,'fontsize',20);
